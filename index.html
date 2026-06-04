@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Weekend Choices</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0f0f0f;
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+url('background.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:700px;
+}
+
+.hero h1{
+font-size:65px;
+letter-spacing:3px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+color:#dddddd;
+line-height:1.8;
+}
+
+.start-btn{
+margin-top:35px;
+display:inline-block;
+padding:15px 35px;
+background:rgba(255,255,255,0.12);
+border:1px solid rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+color:white;
+text-decoration:none;
+border-radius:50px;
+transition:0.3s;
+}
+
+.start-btn:hover{
+background:rgba(255,255,255,0.2);
+transform:scale(1.05);
+}
+
+.content{
+padding:80px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+.section-title{
+font-size:35px;
+margin-bottom:25px;
+text-align:center;
+}
+
+.text-box{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:20px;
+padding:35px;
+line-height:2;
+color:#d6d6d6;
+margin-bottom:40px;
+}
+
+.video-section{
+text-align:center;
+padding-bottom:100px;
+}
+
+.video-container{
+display:flex;
+justify-content:center;
+}
+
+.video-container iframe{
+width:100%;
+max-width:520px;
+aspect-ratio:1/1;
+border:none;
+border-radius:20px;
+box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+.subtitle{
+margin-top:20px;
+font-size:20px;
+color:#cccccc;
+}
+
+.buttons{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+color:white;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.study{
+background:rgba(76,175,80,0.8);
+}
+
+.relax{
+background:rgba(255,152,0,0.8);
+}
+
+.restart{
+background:rgba(255,255,255,0.15);
+display:none;
+margin-top:25px;
+}
+
+.endText{
+margin-top:25px;
+font-size:24px;
+font-weight:600;
+}
+
+.chatbox{
+max-width:800px;
+margin:auto;
+}
+
+.chatbox input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:16px;
+margin-bottom:15px;
+}
+
+.answer{
+margin-top:20px;
+font-size:18px;
+color:white;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#888;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>WEEKEND CHOICES</h1>
+
+<p>
+An interactive storytelling experience exploring the balance between productivity, rest, and emotional well-being during the weekend.
+</p>
+
+<a href="#experience" class="start-btn">
+START EXPERIENCE
+</a>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<h2 class="section-title">Story Background</h2>
+
+<div class="text-box">
+
+For many students, weekends are both relaxing and stressful. Some people choose to study and complete their assignments, while others prefer to rest and recharge mentally after a busy week.
+
+<br><br>
+
+This interactive project explores two different choices that students often face during the weekend: continuing to work hard or taking time to relax.
+
+</div>
+
+</section>
+
+<section class="video-section" id="experience">
+
+<h2 class="section-title">Interactive Experience</h2>
+
+<div class="video-container">
+
+<iframe
+id="youtubeVideo"
+src="https://www.youtube.com/embed/ZKfLiDE6QTs"
+allow="autoplay"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="subtitle" id="subtitle">
+It's finally the weekend...
+</div>
+
+<div class="buttons">
+
+<button class="study" onclick="playStudy()">
+STUDY NOW
+</button>
+
+<button class="relax" onclick="playRelax()">
+RELAX TODAY
+</button>
+
+</div>
+
+<button class="restart" id="restartBtn" onclick="restartStory()">
+RESTART STORY
+</button>
+
+<div class="endText" id="ending"></div>
+
+</section>
+
+<section class="content">
+
+<h2 class="section-title">Project Assistant</h2>
+
+<div class="text-box chatbox">
+
+<input
+type="text"
+id="userQuestion"
+placeholder="Ask a question about the project...">
+
+<button class="study" onclick="askBot()">
+ASK
+</button>
+
+<div class="answer" id="botAnswer"></div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Interactive Storytelling Project
+
+</footer>
+
+<script>
+
+const subtitle = document.getElementById("subtitle");
+const ending = document.getElementById("ending");
+const restartBtn = document.getElementById("restartBtn");
+
+function playStudy(){
+
+document.getElementById("youtubeVideo").src =
+"https://www.youtube.com/embed/bsHzLfVziLM?autoplay=1";
+
+subtitle.innerHTML =
+"Time to focus and study...";
+
+ending.innerHTML =
+"PRODUCTIVE ENDING ✓";
+
+restartBtn.style.display = "inline-block";
+}
+
+function playRelax(){
+
+document.getElementById("youtubeVideo").src =
+"https://www.youtube.com/embed/TkhodN6c77A?autoplay=1";
+
+subtitle.innerHTML =
+"Maybe I should take a break today...";
+
+ending.innerHTML =
+"RELAXED ENDING ✓";
+
+restartBtn.style.display = "inline-block";
+}
+
+function restartStory(){
+
+document.getElementById("youtubeVideo").src =
+"https://www.youtube.com/embed/ZKfLiDE6QTs?autoplay=1";
+
+subtitle.innerHTML =
+"It's finally the weekend...";
+
+ending.innerHTML = "";
+
+restartBtn.style.display = "none";
+}
+
+const faq = {"what is this project about":"This project explores how students choose between studying and relaxing during the weekend.",
+
+"who created this project":"This project was created for the CMNS2016 Interactive Storytelling assignment.",
+
+"what happens if i choose study":"You will see the productive ending and study video.",
+
+"what happens if i choose relax":"You will see the relaxed ending and relaxation video.",
+
+"is there a right choice":"No. Both choices are valid.",
+
+"why was this project created":"To explore decision making and emotional well-being.",
+
+"can i replay the story":"Yes. Click Restart Story.",
+
+"is this website mobile friendly":"Yes. It works on phones tablets and desktops.",
+
+"what is interactive storytelling":"It allows users to influence the story through choices.",
+
+"how many endings are there":"There are two endings.",
+
+"what is the productive ending":"It represents achievement and focus.",
+
+"what is the relaxed ending":"It represents rest and self-care.",
+
+"are the videos part of the story":"Yes. The videos help tell the story.",
+
+"why is studying important":"It helps students prepare for future goals.",
+
+"why is relaxation important":"It reduces stress and improves well-being.",
+
+"what is the main message":"Balance between work and rest is important.",
+
+"is this based on real life":"It is inspired by common student experiences.",
+
+"can choices affect emotions":"Yes. Different choices create different emotional outcomes.",
+
+"is there a time limit":"No. Explore at your own pace.",
+
+"can this project be expanded":"Yes. More endings and story branches can be added.",
+
+"what technology was used":"HTML CSS JavaScript and YouTube.",
+
+"why use videos":"Videos make the story more engaging.",
+
+"what is the chatbot":"It answers common project questions.",
+
+"can the chatbot answer everything":"No. It only answers built-in questions.",
+
+"what should users learn":"That productivity and relaxation both matter."
+};
+
+function askBot(){
+
+const question =
+document.getElementById("userQuestion")
+.value
+.toLowerCase()
+.trim();
+
+const answer =
+faq[question] ||
+"Sorry, I only answer questions related to this project.";
+
+document.getElementById("botAnswer")
+.innerHTML = answer;
+}
+
+</script>
+
+</body>
+</html>
